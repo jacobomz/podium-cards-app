@@ -1,6 +1,7 @@
-import { Text, View, Image, StyleSheet } from "react-native";
+import { useEffect, useRef } from "react";
+import { Text, View, Image, StyleSheet, Animated } from "react-native";
 
-export function DriverCard({ driver }) {
+export function DriverCard({ driver, index }) {
   return (
     <View
       key={driver.driver_number}
@@ -8,6 +9,7 @@ export function DriverCard({ driver }) {
         styles.card,
         {
           backgroundColor: driver.team_colour,
+          marginTop: index === 0 ? 60 : 5,
         },
       ]}
     >
@@ -30,6 +32,25 @@ export function DriverCard({ driver }) {
         <Text style={styles.boldFormulaText}>{driver.team_name}</Text>
       </View>
     </View>
+  );
+}
+
+export function AnimatedDriverCard({ driver, index }) {
+  const opacity = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 500,
+      delay: index * 250,
+      useNativeDriver: true,
+    }).start();
+  }, [opacity, index]);
+
+  return (
+    <Animated.View style={{ opacity }}>
+      <DriverCard driver={driver} index={index} />
+    </Animated.View>
   );
 }
 
