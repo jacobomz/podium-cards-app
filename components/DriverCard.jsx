@@ -1,37 +1,60 @@
+import { Link } from "expo-router";
 import { useEffect, useRef } from "react";
-import { Text, View, Image, StyleSheet, Animated } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  Animated,
+  Pressable,
+} from "react-native";
+import { styled } from "nativewind";
 
 export function DriverCard({ driver, index }) {
+  const StyledPressable = styled(Pressable);
+
   return (
-    <View
-      key={driver.driver_number}
-      style={[
-        styles.card,
-        {
-          backgroundColor: driver.team_colour,
-          marginTop: index === 0 ? 60 : 5,
-        },
-      ]}
-    >
-      <Text style={[styles.boldFormulaText, { fontSize: 22 }]}>
-        {driver.driver_number}
-      </Text>
-      <Image source={{ uri: driver.headshot_url }} style={styles.driverPic} />
-      <View>
-        <Text style={styles.regularFormulaText}>{driver.first_name}</Text>
-        <Text style={styles.boldFormulaText}>{driver.last_name}</Text>
-      </View>
-      <View
-        style={{
-          flex: 1,
-          alignItems: "center",
-          justifyContent: "top",
-        }}
-      >
-        <Text style={styles.regularFormulaText}>Driving for</Text>
-        <Text style={styles.boldFormulaText}>{driver.team_name}</Text>
-      </View>
-    </View>
+    <Link href={`/${driver.driver_number}`} asChild>
+      <StyledPressable className="active:opacity-70 border border-black active:border-white/50 mb-2 bg-gray-500/10 rounded-xl p-4">
+        <View
+          key={driver.driver_number}
+          style={[
+            styles.card,
+            {
+              backgroundColor: driver.team_colour,
+            },
+          ]}
+        >
+          <Text style={[styles.boldFormulaText, { fontSize: 22 }]}>
+            {driver.driver_number}
+          </Text>
+          <Image
+            source={{ uri: driver.headshot_url }}
+            style={[styles.driverPic, { width: "25%" }]}
+          />
+          <View style={{ width: "35%", marginHorizontal: 5 }}>
+            <Text style={[styles.regularFormulaText]}>{driver.first_name}</Text>
+            <Text style={styles.boldFormulaText}>{driver.last_name}</Text>
+          </View>
+          <View
+            style={{
+              flex: 1,
+              alignItems: "center",
+              justifyContent: "top",
+              width: "35%",
+              marginHorizontal: 5,
+            }}
+          >
+            <Text
+              style={[styles.regularFormulaText, { alignContent: "center" }]}
+            >
+              Driving for
+            </Text>
+            <Text style={styles.boldFormulaText}>{driver.team_name}</Text>
+          </View>
+        </View>
+      </StyledPressable>
+    </Link>
   );
 }
 
