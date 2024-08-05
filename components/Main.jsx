@@ -1,15 +1,12 @@
-import { View, StyleSheet, Animated } from "react-native";
+import { Animated } from "react-native";
 import { useEffect, useRef, useState } from "react";
 import { getDrivers } from "../lib/drivers";
 import { useFonts } from "expo-font";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AnimatedDriverCard } from "./DriverCard";
-import { Logo } from "./Logo";
 import { Screen } from "./Screen";
 
 export function Main() {
   const [drivers, setDrivers] = useState([]);
-  const insets = useSafeAreaInsets();
 
   useEffect(() => {
     getDrivers().then((drivers) => {

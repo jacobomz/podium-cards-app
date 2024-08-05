@@ -1,14 +1,20 @@
 import { Link, Stack } from "expo-router";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Image } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { Screen } from "../components/Screen";
 import { useEffect, useState } from "react";
+import { useFonts } from "expo-font";
 import { getDriverByNumber } from "../lib/drivers";
 import { ActivityIndicator } from "react-native";
 
 export default function DriverDetail() {
   const { driverNumber } = useLocalSearchParams();
   const [driver, setDriver] = useState(null);
+
+  useFonts({
+    FormulaRegular: require("../assets/fonts/formularegular.ttf"),
+    FormulaBold: require("../assets/fonts/formulaboldweb.ttf"),
+  });
 
   useEffect(() => {
     if (driverNumber) {
@@ -28,14 +34,30 @@ export default function DriverDetail() {
     <Screen>
       <Stack.Screen
         options={{
-          headerStyle: { backgroundColor: driver.team_colour },
+          headerStyle: {
+            backgroundColor: driver.team_colour,
+            fontFamily: "FormulaBold",
+          },
           headerTintColor: "#fff",
-          headerTitle: `${driver.first_name} ${driver.last_name}`,
+          headerTitle: driver
+            ? `${driver.first_name} ${driver.last_name}`
+            : "Cargando...",
         }}
       />
       <View style={styles.container}>
-        <Text style={styles.title}>
-          Detalle del piloto con numero {driverNumber}
+        <Image
+          source={{ uri: driver.headshot_url }}
+          style={{ width: 200, height: 200, borderRadius: 10 }}
+        />
+        <Text style={[styles.title, { marginTop: 20 }]}>Driving for</Text>
+        <Text
+          style={{
+            color: driver.team_colour,
+            fontSize: 20,
+            fontFamily: "FormulaBold",
+          }}
+        >
+          {driver.team_name}
         </Text>
         <Link href="/" style={styles.link}>
           Volver atrás
@@ -53,7 +75,7 @@ const styles = StyleSheet.create({
   title: {
     color: "#fff",
     fontSize: 20,
-    fontWeight: "bold",
+    fontFamily: "FormulaBold",
   },
   link: {
     marginTop: 20,

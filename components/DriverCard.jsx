@@ -33,8 +33,12 @@ export function DriverCard({ driver, index }) {
             style={[styles.driverPic, { width: "25%" }]}
           />
           <View style={{ width: "35%", marginHorizontal: 5 }}>
-            <Text style={[styles.regularFormulaText]}>{driver.first_name}</Text>
-            <Text style={styles.boldFormulaText}>{driver.last_name}</Text>
+            <Text style={[styles.regularFormulaText, { textAlign: "center" }]}>
+              {driver.first_name}
+            </Text>
+            <Text style={[styles.boldFormulaText, { textAlign: "center" }]}>
+              {driver.last_name}
+            </Text>
           </View>
           <View
             style={{
@@ -45,12 +49,9 @@ export function DriverCard({ driver, index }) {
               marginHorizontal: 5,
             }}
           >
-            <Text
-              style={[styles.regularFormulaText, { alignContent: "center" }]}
-            >
-              Driving for
+            <Text style={[styles.boldFormulaText, { textAlign: "center" }]}>
+              {driver.team_name}
             </Text>
-            <Text style={styles.boldFormulaText}>{driver.team_name}</Text>
           </View>
         </View>
       </StyledPressable>
