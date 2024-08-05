@@ -1,6 +1,7 @@
 import { Stack } from "expo-router";
 import { View } from "react-native";
 import { Logo } from "../components/Logo";
+import { Utils } from "../lib/Utils";
 
 export default function Layout() {
   return (
@@ -8,7 +9,7 @@ export default function Layout() {
       <Stack
         screenOptions={{
           headerStyle: {
-            backgroundColor: "#000",
+            backgroundColor: Utils.MainColor,
           },
           headerTintColor: "#fff",
           headerTitleAlign: "center",

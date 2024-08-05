@@ -5,7 +5,7 @@ export function Screen({ children }) {
     <View
       style={{
         flex: 1,
-        backgroundColor: "#000",
+        backgroundColor: "#000822",
         paddingTop: 4,
       }}
     >

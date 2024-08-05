@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   card: {
     padding: 10,
     borderRadius: 10,
-    marginHorizontal: 10,
+    marginHorizontal: 30,
     marginVertical: 5,
     flexDirection: "row",
     alignItems: "center",
