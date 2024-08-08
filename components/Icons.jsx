@@ -1,11 +1,11 @@
 import { Entypo } from "@expo/vector-icons";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
-import Feather from "@expo/vector-icons/Feather";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
 export function HomeIcon(props) {
-  return <Entypo name="home" size={24} color="black" {...props} />;
+  return <FontAwesome6 name="house" size={20} color="black" {...props} />;
 }
 
 export function InfoIcon(props) {
@@ -25,11 +25,17 @@ export function FantasySectionIcon(props) {
 }
 
 export function ShopIcon(props) {
-  return <Feather name="dollar-sign" size={24} color="black" {...props} />;
+  return <FontAwesome name="dollar" size={24} color="black" {...props} />;
 }
 
 export function TradeIcon(props) {
   return (
     <MaterialIcons name="compare-arrows" size={24} color="black" {...props} />
+  );
+}
+
+export function SupportIcon(props) {
+  return (
+    <MaterialIcons name="contact-support" size={24} color="black" {...props} />
   );
 }

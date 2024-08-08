@@ -14,10 +14,12 @@ export function Main() {
     });
   }, []);
 
+  /* eslint-disable */
   useFonts({
-    FormulaRegular: require("../assets/fonts/formularegular.ttf"),
-    FormulaBold: require("../assets/fonts/formulaboldweb.ttf"),
+    "FormulaRegular": require("../assets/fonts/formularegular.ttf"),
+    "FormulaBold": require("../assets/fonts/formulaboldweb.ttf"),
   });
+  /* eslint-enable */
 
   const scrollY = useRef(new Animated.Value(0)).current;
 
