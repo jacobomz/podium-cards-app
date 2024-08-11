@@ -8,28 +8,16 @@ import {
   Pressable,
 } from "react-native";
 import { styled } from "nativewind";
-import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
+import useLoadFonts from "../hooks/useLoadFonts";
 
 export function DriverCard({ driver, index }) {
-  /* eslint-disable */
-  const [loaded, error] = useFonts({
-    "FormulaRegular": require("../assets/fonts/formularegular.ttf"),
-    "FormulaBold": require("../assets/fonts/formulaboldweb.ttf"),
-  });
-  /* eslint-enable */
+  const StyledPressable = styled(Pressable);
 
-  useEffect(() => {
-    if (loaded || error) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded, error]);
+  const { loaded, error } = useLoadFonts();
 
   if (!loaded && !error) {
     return null;
   }
-
-  const StyledPressable = styled(Pressable);
 
   return (
     <StyledPressable className="active:opacity-70 border border-black active:border-white/50 mb-2 bg-gray-500/10 rounded-xl p-4">

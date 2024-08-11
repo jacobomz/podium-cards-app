@@ -1,6 +1,6 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
-import { HomeIcon, SupportIcon } from "../components/Icons";
+import { HomeIcon, PolYPrivIcon, SupportIcon } from "../components/Icons";
 import { Utils } from "../lib/Utils";
 import { Image } from "react-native";
 import CoinCount from "../components/CoinCount";
@@ -13,13 +13,16 @@ export default function Layout() {
       <Drawer
         drawerContent={DrawerContent}
         screenOptions={{
-          drawerInactiveTintColor: "#fff",
+          drawerInactiveTintColor: "#000",
           drawerActiveBackgroundColor: Utils.LightBlue,
           drawerActiveTintColor: "#fff",
           drawerLabelStyle: { marginLeft: -20 },
           headerStyle: {
             backgroundColor: Utils.MainColor,
             borderColor: Utils.MainColor,
+            elevation: 0,
+            shadowOpacity: 0,
+            borderBottomWidth: 0,
           },
           headerShadowVisible: false,
           headerTintColor: "#fff",
@@ -43,18 +46,26 @@ export default function Layout() {
         />
 
         <Drawer.Screen
-          name="soporte"
-          options={{
-            drawerLabel: "Soporte",
-            drawerIcon: ({ color }) => <SupportIcon color={color} />,
-          }}
-        />
-
-        <Drawer.Screen
           name="clasificacion"
           options={{
             drawerLabel: "Clasificación",
             drawerIcon: ({ color }) => <QualyIcon color={color} />,
+          }}
+        />
+
+        <Drawer.Screen
+          name="polypriv"
+          options={{
+            drawerLabel: "Politica y privacidad",
+            drawerIcon: ({ color }) => <PolYPrivIcon color={color} />,
+          }}
+        />
+
+        <Drawer.Screen
+          name="soporte"
+          options={{
+            drawerLabel: "Soporte",
+            drawerIcon: ({ color }) => <SupportIcon color={color} />,
           }}
         />
       </Drawer>
