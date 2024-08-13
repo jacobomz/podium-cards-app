@@ -3,13 +3,11 @@ import { View, Text, StyleSheet } from "react-native";
 import { Screen } from "../../components/Screen";
 import useLoadFonts from "../../hooks/useLoadFonts";
 import DropdownComponent from "../../components/DropdownComponent";
-import { Utils } from "../../lib/Utils";
 import {
   CoreCollectionIcon,
   EventsIcon,
   SpecialCardsIcon,
 } from "../../components/ExternalIcons";
-import { RightArrowIcon } from "../../components/Icons";
 import { CollectionCard } from "../../components/CollectionCard";
 
 export default function Race() {
@@ -22,7 +20,7 @@ export default function Race() {
   return (
     <Screen>
       <View style={styles.container}>
-        <Text style={[styles.title, { marginVertical: 10 }]}>Colección</Text>
+        <Text style={styles.title}>Colección</Text>
         <DropdownComponent />
         <CollectionCard
           props={{
@@ -61,5 +59,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 16,
     fontFamily: "FormulaBold",
+    marginVertical: 10,
   },
 });
