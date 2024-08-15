@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { Screen } from "../../components/Screen";
 import useLoadFonts from "../../hooks/useLoadFonts";
 import { Utils } from "../../lib/Utils";
@@ -68,17 +68,22 @@ export default function Race() {
           >
             Puntos ganados en la carrera anterior
           </Text>
-          <PointsEarned order="driver1" name="VER" rarity="Soft" points="100" />
+          <PointsEarned
+            order="driver1"
+            name="Verstappen"
+            rarity="Soft (x2)"
+            points="100"
+          />
           <PointsEarned
             order="driver2"
-            name="ALO"
-            rarity="Medium"
+            name="Alonso"
+            rarity="Medium (x1.5)"
             points="70"
           />
           <PointsEarned
             order="team"
             name="Aston Martin"
-            rarity="Hard"
+            rarity="Hard (x1)"
             points="260"
             lastMargin={10}
           />

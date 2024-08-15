@@ -11,7 +11,7 @@ export default function PointsEarned(props) {
         width: "100%",
       }}
     >
-      <View style={{ width: "33%" }}>
+      <View style={{ width: "40%" }}>
         <Text
           style={[
             styles.text,
@@ -25,7 +25,7 @@ export default function PointsEarned(props) {
         </Text>
       </View>
 
-      <View style={{ width: "33%" }}>
+      <View style={{ width: "30%" }}>
         <Text
           style={[
             styles.text,
@@ -38,7 +38,7 @@ export default function PointsEarned(props) {
         </Text>
       </View>
 
-      <View style={{ width: "33%" }}>
+      <View style={{ width: "30%" }}>
         <Text
           style={[
             styles.text,

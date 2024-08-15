@@ -59,6 +59,5 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 16,
     fontFamily: "FormulaBold",
-    marginVertical: 10,
   },
 });
